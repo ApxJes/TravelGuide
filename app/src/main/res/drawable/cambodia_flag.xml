@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="16dp"
+    android:viewportWidth="18"
+    android:viewportHeight="12">
+
+    <!-- Blue Top -->
+    <path
+        android:fillColor="#032EA1"
+        android:pathData="M0,0h18v3h-18z" />
+
+    <!-- Red Middle -->
+    <path
+        android:fillColor="#E00025"
+        android:pathData="M0,3h18v6h-18z" />
+
+    <!-- Blue Bottom -->
+    <path
+        android:fillColor="#032EA1"
+        android:pathData="M0,9h18v3h-18z" />
+
+    <!-- White Temple (simplified icon) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M8,4h2v1h-2z
+                          M7.5,5h3v1h-3z
+                          M7,6h4v1h-4z
+                          M6.5,7h5v1h-5z
+                          M6,8h6v1h-6z" />
+</vector>
