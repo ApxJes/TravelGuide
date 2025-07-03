@@ -44,36 +44,39 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailInputLayout"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/input_layout"
-        app:layout_constraintEnd_toStartOf="@id/guideline5"
+        app:layout_constraintTop_toBottomOf="@id/welcome"
         app:layout_constraintStart_toEndOf="@id/guideline4"
-        app:layout_constraintTop_toBottomOf="@id/welcome">
+        app:layout_constraintEnd_toStartOf="@id/guideline5"
+        app:boxStrokeColor="@color/black"
+        app:boxBackgroundMode="outline"
+        android:background="@drawable/input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/hunman"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
+            android:fontFamily="@font/hunman"
             android:textSize="14sp"
-            app:hintTextAppearance="@font/darker"
-            app:hintTextColor="@color/black" />
+            android:background="@android:color/transparent" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/PasswordInputLayout"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/input_layout"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/button_color"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/black"
         app:layout_constraintEnd_toStartOf="@id/guideline5"
         app:layout_constraintStart_toEndOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@id/emailInputLayout">
@@ -90,7 +93,7 @@
             android:textSize="14sp"
             app:hintTextAppearance="@font/darker"
             app:hintTextColor="@color/black"
-            android:textColorHint="@color/black"/>
+            android:textColorHint="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -234,6 +237,7 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/txvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.travelguideapp.R
 import com.example.travelguideapp.databinding.FragmentSignUpBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +26,9 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.txvSignIn.setOnClickListener {
+            findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToLoginFragment())
+        }
     }
 
     override fun onDestroy() {
