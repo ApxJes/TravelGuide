@@ -49,7 +49,7 @@
             android:fontFamily="@font/haland_semi_bold"
             android:text="WonderWay"
             android:textColor="@color/text_color"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imvLogo" />
@@ -62,7 +62,7 @@
             android:fontFamily="@font/hunman"
             android:text="Uncover Your"
             android:textColor="@color/text_color"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text1" />
@@ -74,7 +74,7 @@
             android:fontFamily="@font/hunman"
             android:text="Dream Adventure"
             android:textColor="@color/text_color"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text2" />
@@ -91,7 +91,7 @@
             android:text="Let's Travel"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
