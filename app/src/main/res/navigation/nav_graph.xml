@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_onBoardingFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_onBoardingFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -31,6 +34,9 @@
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_selectCountryFragment"
+            app:destination="@id/selectCountryFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -41,4 +47,9 @@
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/selectCountryFragment"
+        android:name="com.example.travelguideapp.app_features.presentation.screens.SelectCountryFragment"
+        android:label="fragment_select_country"
+        tools:layout="@layout/fragment_select_country" />
 </navigation>

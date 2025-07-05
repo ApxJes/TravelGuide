@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     id("com.google.dagger.hilt.android") version "2.50" apply false
     id("org.jetbrains.kotlin.plugin.serialization") version "1.7.10"
+    alias(libs.plugins.google.gms.google.services) apply false
 
 }
 

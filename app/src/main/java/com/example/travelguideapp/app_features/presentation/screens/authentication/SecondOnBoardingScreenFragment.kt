@@ -30,6 +30,10 @@ class SecondOnBoardingScreenFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardingFragment_to_loginFragment)
         }
+
+        binding.btnRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_onBoardingFragment_to_signUpFragment)
+        }
     }
 
     override fun onDestroyView() {
