@@ -25,4 +25,19 @@ class TourismRepositoryImpl @Inject constructor(
             throw  e
         }
     }
+
+    override suspend fun getCountryCuisine(countryCuisine: String): Flow<List<PlaceVo>> = flow {
+
+        try {
+            val response = api.getCountryCuisine(gcmtitle = countryCuisine)
+            if(response.isSuccessful) {
+                val body = response.body()
+                val pagesMap = body?.query?.pages
+                val cuisines = pagesMap?.values?.map { it.toPlaceVo() } ?:  emptyList()
+                emit(cuisines)
+            }
+        } catch (e: Exception) {
+            throw  e
+        }
+    }
 }

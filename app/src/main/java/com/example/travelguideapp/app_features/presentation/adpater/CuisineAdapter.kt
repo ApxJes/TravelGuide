@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.travelguideapp.R
 import com.example.travelguideapp.app_features.domain.model.PlaceVo
-import com.example.travelguideapp.databinding.DestinationLayoutBinding
+import com.example.travelguideapp.databinding.CuisineLayoutBinding
 
-class TourismAdapter : RecyclerView.Adapter<TourismAdapter.TourismViewHolder>() {
+class CuisineAdapter: RecyclerView.Adapter<CuisineAdapter.CuisineViewHolder>() {
 
-    private val differCallBack = object : DiffUtil.ItemCallback<PlaceVo>() {
+    private var differCallBack = object: DiffUtil.ItemCallback<PlaceVo>() {
         override fun areItemsTheSame(
             oldItem: PlaceVo,
             newItem: PlaceVo
@@ -33,31 +33,29 @@ class TourismAdapter : RecyclerView.Adapter<TourismAdapter.TourismViewHolder>() 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TourismViewHolder {
-        val binding = DestinationLayoutBinding.inflate(
+    ): CuisineViewHolder {
+        val binding = CuisineLayoutBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
 
-        return TourismViewHolder(binding)
+        return CuisineViewHolder(binding)
     }
 
     override fun onBindViewHolder(
-        holder: TourismViewHolder,
+        holder: CuisineViewHolder,
         position: Int
     ) {
-        val place = differ.currentList[position]
+        val cuisine = differ.currentList[position]
 
         holder.binding.apply {
-            txvPlaceName.text = place.title
+            txvCuisine.text = cuisine.title
 
-            Glide.with(imgPlace.context)
-                .load(place.thumbnail)
+            Glide.with(imgCuisine.context)
+                .load(cuisine.thumbnail)
                 .placeholder(R.drawable.tourism)
-                .into(imgPlace)
-
-            imgSave.setOnClickListener {}
+                .into(imgCuisine)
         }
     }
 
@@ -65,6 +63,5 @@ class TourismAdapter : RecyclerView.Adapter<TourismAdapter.TourismViewHolder>() 
         return differ.currentList.size
     }
 
-    inner class TourismViewHolder(val binding: DestinationLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class CuisineViewHolder(val binding: CuisineLayoutBinding): RecyclerView.ViewHolder(binding.root)
 }

@@ -22,4 +22,18 @@ interface WikipediaApiService {
         @Query("pithumbsize") thumbSize: Int = 500,
         @Query("format") format: String = "json"
     ): Response<WikiResponse>
+
+    @GET("w/api.php")
+    suspend fun getCountryCuisine(
+        @Query("action") action: String = "query",
+        @Query("generator") generator: String = "categorymembers",
+        @Query("gcmtitle") gcmtitle: String,
+        @Query("gcmlimit") gcmlimit: Int = 10,
+        @Query("gcmtype") gcmtype: String = "page",
+        @Query("prop") prop: String = "pageimages|extracts",
+        @Query("exintro") exintro: Boolean = true,
+        @Query("explaintext") explaintext: Boolean = true,
+        @Query("pithumbsize") pithumbsize: Int = 500,
+        @Query("format") format: String = "json"
+    ): Response<WikiResponse>
 }
