@@ -36,4 +36,16 @@ interface WikipediaApiService {
         @Query("pithumbsize") pithumbsize: Int = 500,
         @Query("format") format: String = "json"
     ): Response<WikiResponse>
+
+    @GET("w/api.php")
+    suspend fun getPageDetails(
+        @Query("action") action: String = "query",
+        @Query("format") format: String = "json",
+        @Query("pageids") pageIds: String,
+        @Query("prop") prop: String = "pageimages|extracts",
+        @Query("exintro") exintro: Boolean = true,
+        @Query("explaintext") explaintext: Boolean = true,
+        @Query("pithumbsize") pithumbsize: Int = 500,
+        @Query("origin") origin: String = "*"
+    ): Response<WikiResponse>
 }

@@ -57,12 +57,21 @@ class TourismAdapter : RecyclerView.Adapter<TourismAdapter.TourismViewHolder>() 
                 .placeholder(R.drawable.tourism)
                 .into(imgPlace)
 
+            root.setOnClickListener {
+                onClick?.invoke(place)
+            }
+
             imgSave.setOnClickListener {}
         }
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
+    }
+
+    private var onClick: ((PlaceVo) -> Unit)? = null
+    fun setOnClickListener(listener: (PlaceVo) -> Unit) {
+        onClick = listener
     }
 
     inner class TourismViewHolder(val binding: DestinationLayoutBinding) :

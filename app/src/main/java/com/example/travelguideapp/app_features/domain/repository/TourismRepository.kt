@@ -9,4 +9,6 @@ interface TourismRepository {
     suspend fun getTourismPlaces(tourismPlace: String): Flow<List<PlaceVo>>
 
     suspend fun getCountryCuisine(countryCuisine: String): Flow<List<PlaceVo>>
+
+    suspend fun getDetails(id: String): Flow<PlaceVo>
 }

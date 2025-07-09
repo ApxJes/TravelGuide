@@ -2,6 +2,7 @@ package com.example.travelguideapp.app_features.presentation.screens.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.travelguideapp.app_features.domain.model.Country
 import com.example.travelguideapp.app_features.presentation.adpater.CountryAdapter
@@ -37,7 +39,7 @@ class HomeFragment : Fragment() {
         "Thailand" to "Thai_cuisine",
         "Vietnam" to "Vietnamese_cuisine",
         "Indonesia" to "Indonesian_cuisine",
-        "Philippines" to "Philippine_cuisine",
+        "Philippines" to "Philippine_desserts",
         "Malaysia" to "Malaysian_cuisine",
         "Cambodia" to "Cambodian_cuisine",
         "Laos" to "Lao_cuisine",
@@ -109,6 +111,12 @@ class HomeFragment : Fragment() {
             adapter = cuisineAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
+
+        tourismAdapter.setOnClickListener {
+            Log.d("HomeFragment", "Clicked: ${it.pageid}")
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(it.pageid.toString())
+            findNavController().navigate(action)
+        }
     }
 
     private fun setupObservers() {
@@ -140,43 +148,33 @@ class HomeFragment : Fragment() {
     private fun setupFlagClickListeners() {
         binding.myanmarFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourist_attractions_in_Myanmar")
-            cuisineViewModel.getCountryCuisine("Category:Burmese_cuisine")
         }
         binding.thailandFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourist_attractions_in_Thailand")
-            cuisineViewModel.getCountryCuisine("Category:Thai_cuisine")
         }
         binding.laosFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourism_in_Laos")
-            cuisineViewModel.getCountryCuisine("Category:Lao_cuisine")
         }
         binding.cambodiaFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourism_in_Cambodia")
-            cuisineViewModel.getCountryCuisine("Category:Cambodian_cuisine")
         }
         binding.malaysiaFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourism_in_Malaysia")
-            cuisineViewModel.getCountryCuisine("Category:Malaysian_cuisine")
         }
         binding.singaporeFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourist_attractions_in_Singapore")
-            cuisineViewModel.getCountryCuisine("Category:Singaporean_cuisine")
         }
         binding.indonesiaFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourism_in_Indonesia")
-            cuisineViewModel.getCountryCuisine("Category:Indonesian_cuisine")
         }
         binding.philippines.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourism_in_the_Philippines")
-            cuisineViewModel.getCountryCuisine("Category:Philippine_cuisine")
         }
         binding.vietnamFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourism_in_Vietnam")
-            cuisineViewModel.getCountryCuisine("Category:Vietnamese_cuisine")
         }
         binding.bruneiFlag.setOnClickListener {
             tourismViewModel.getTourismPlace("Category:Tourism_in_Brunei")
-            cuisineViewModel.getCountryCuisine("Category:Bruneian_cuisine")
         }
     }
 

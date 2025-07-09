@@ -1,6 +1,5 @@
 package com.example.travelguideapp.app_features.data.repository
 
-import com.example.travelguideapp.app_core.Resource
 import com.example.travelguideapp.app_features.data.apiService.WikipediaApiService
 import com.example.travelguideapp.app_features.domain.model.PlaceVo
 import com.example.travelguideapp.app_features.domain.repository.TourismRepository
@@ -38,6 +37,19 @@ class TourismRepositoryImpl @Inject constructor(
             }
         } catch (e: Exception) {
             throw  e
+        }
+    }
+
+    override suspend fun getDetails(id: String): Flow<PlaceVo> = flow {
+        try {
+            val response = api.getPageDetails(pageIds = id)
+            if (response.isSuccessful) {
+                val body = response.body()
+                val place = body?.query?.pages?.values?.firstOrNull()?.toPlaceVo()
+                place?.let { emit(place) }
+            }
+        } catch (e: Exception) {
+            throw e
         }
     }
 }
